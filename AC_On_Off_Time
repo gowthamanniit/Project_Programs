@@ -1,0 +1,44 @@
+	import java.util.*;
+class Test1
+{
+	public static void main(String args[])throws Exception
+	{
+	int a=10,b=7;
+	
+	System.out.format("%04d",a);
+	System.out.format("\n%4d",a);
+	System.out.format("\n%02d:%02d",a,b);
+	Map<String,Integer> tm=new TreeMap<String,Integer>();
+
+	int ontime=0,offtime=0;
+	String tim1="";
+	for(int i=0;i<12;i++)
+	{
+	for(int j=0;j<60;j++)
+	{
+	
+	tim1=String.format("%02d:%02d",i,j);
+	
+	System.out.println("\r"+tim1);
+	//System.out.format("\r%02d:%02d",i,j);
+	Thread.sleep(10);	
+		if((i<=1) || (i>=3 && i<=4)|| (i>=6 && i<=7)|| (i>=9 && i<=10))
+		ontime++;
+		else
+		offtime++;			
+	}
+
+	tm.put(tim1,ontime);
+	
+
+	System.out.format("\n on time = %d\n",ontime);
+	System.out.format("\n off time = %d\n",offtime);
+	}
+
+
+	
+	System.out.println(tm.size());
+	System.out.println(tm.get("02:59"));	
+	System.out.println((tm.get("02:59"))/60);	
+	}
+}
