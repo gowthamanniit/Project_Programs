@@ -1,0 +1,38 @@
+package application1;
+import java.util.*;
+public class TestPgm 
+{
+	public static void main(String[] args) 
+	{
+	Scanner scan=new Scanner(System.in);
+		System.out.print("Enter n odd value:");
+		int n=scan.nextInt();
+		
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=1;j<=n;j++)
+			{
+			//if((i==1 && i!=j && j!=n) || (i==n && j!=1 && j!=n) || (j==1 && i!=j && i!=n) || (j==n && i!=1 && i!=n))
+				
+				if((i==1 && j>1 && j<n) || (j==1 && i>1 && i<n) || (i>1 && i<n && j==n) ||(i==n && j>1 && j<n) )
+				System.out.print(" "+i+j);
+				else
+				System.out.print("   ");
+			}
+			System.out.println();
+		}
+		
+	scan.close();	
+	}
+
+}
+//===========================================O printing ==========================
+Enter n odd value:
+7
+    12 13 14 15 16   
+ 21                27
+ 31                37
+ 41                47
+ 51                57
+ 61                67
+    72 73 74 75 76   
