@@ -42,3 +42,44 @@ class Test1
 	System.out.println((tm.get("02:59"))/60);	
 	}
 }
+//==============================================question================
+Sample Input
+
+1130
+1330
+20
+10
+Sample Output
+
+1130 - 1150
+1200 - 1220
+1230 - 1250
+1300 - 1320
+4
+Explanation
+
+The first line of input will be the start time of the time period. Ex: 1130
+
+
+
+The second line of input will be the end time of the time period. Ex: 1330
+
+
+
+The third line of input will be the minutes for which AC will be in ON mode (after which it will go to OFF mode). Ex: 20
+
+
+
+The fourth line of input will be the minutes for which AC will be in OFF mode (after which it will go to ON mode). Ex: 10
+
+
+
+In the given example, the time period for which the calculation is required is from 11:30 to 13:30(i.e.,01:30 PM) It is understood that the AC will go to ON mode at the start of the time period and it will be in ON mode for 20 minutes. So it will be in ON mode from 11:30 to 11:50. At 11:50 it will go to OFF mode and will be in that mode for 10 minutes. So it will be in OFF mode from 11:50 to 12:00.
+
+
+
+A cycle starts when the AC is switched ON and ends when the OFF mode of the AC starts. So here, the cycle starts from 11:30 and ends by 11:50. Calculating all the ON mode and the number of cycles as per the above explanation will provide the sample output.
+
+
+
+First all the time period when the AC was in ON mode are printed one by one. Here we have the AC switched on four times in the given period and are printed as sample output. The last line of the sample output denotes the number of cycles which is 4 in this case. 
