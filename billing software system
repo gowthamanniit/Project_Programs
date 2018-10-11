@@ -1,0 +1,172 @@
+package Flames;
+import java.util.*;
+public class BillingSoftware {
+
+	public static void main(String[] args) {
+		
+		TreeMap<Integer,Integer> l_price=new TreeMap<>();
+		TreeMap<Integer,Integer> l_tax=new TreeMap<>();
+		
+		l_price.put(100,30);
+		l_price.put(101,20);
+		
+		l_tax.put(100,12);
+		l_tax.put(101,0);
+		
+		System.out.println(l_price.size());
+		
+		for(int k: l_price.keySet())
+		{
+			System.out.println(k +"|"+l_price.get(k)+"|"+l_tax.get(k));
+		}
+		//========================================================
+		
+		System.out.println("Enter the total no. of items purchased:");
+		Scanner scan=new Scanner(System.in);
+		int no_item=scan.nextInt();
+		int item_code[]=new int[no_item];
+		int item_qty[]=new int[no_item];
+		for(int i=0;i<no_item;i++)
+		{
+			System.out.print("Enter item code:");
+			item_code[i]=scan.nextInt();
+			System.out.print("Enter item qty:");
+			item_qty[i]=scan.nextInt();			
+		}
+		//===============================================================
+		TreeMap<Integer,Integer> curbal=new TreeMap<>();
+		curbal.put(2000, 10);
+		curbal.put(500, 10);
+		curbal.put(100, 10);
+		curbal.put(50, 10);
+		curbal.put(20, 10);
+		curbal.put(10, 10);
+		curbal.put(5, 10);
+		curbal.put(2, 10);
+		curbal.put(1, 10);
+		
+		
+		
+		for(int k:curbal.descendingKeySet())
+		{
+			System.out.println(k+"|"+curbal.get(k));
+			
+		}
+		//==============================================================
+		
+		System.out.println("please give amount:");
+		int useramt=scan.nextInt();
+		//============================================================
+		System.out.println("=========START BILL ==============");
+		for(int i=0;i<no_item;i++)
+		{
+		int wot=l_price.get(item_code[i])*item_qty[i];
+		int wt=((l_price.get(item_code[i])*item_qty[i])*l_tax.get(item_code[i]))/100;
+		
+		System.out.println(item_code[i]+"|"+l_price.get(item_code[i])+"|"+item_qty[i]+"|"+wot+"|"+l_tax.get(item_code[i])+"|"+wt+"|"+(wot+wt));
+		
+		System.out.println(wot);
+		System.out.println(wt);
+		System.out.println(wot+wt);
+		
+		System.out.println(useramt);
+		useramt=useramt-(wot+wt);
+		System.out.println(useramt);	
+		}
+		scan.close();
+	}
+
+}
+
+//======================question =========output======
+Description
+We need to create a billing software for a shop. The program will be given below inputs:
+
+
+
+* List of items available in the shop, its price and tax percentage.
+
+* Details about the purchase made like the item purchased and the quantity of items will be provided. 
+
+* Details about the cash available in the shop like number of notes/coins available in each denomination.
+
+
+
+The program should calculate the price of the purchase and display the detailed bill as output. 
+
+
+
+Clear explanations about the input and output are available in the below links:
+
+
+
+* Sample1
+
+* Sample2
+
+
+
+Assumptions:
+
+
+
+* Item code is always numeric and positive
+
+* Total number of items in the shop will be less than 100
+
+* Purchased item will always be present in the shop
+
+* Price, purchased quantity, items are always positive (>=0)
+
+* Tax value can be greater than or equal to zero (>=0)
+
+* Shop will always have enough cash to pay the balance
+
+* Final price will be rounded down to whole number.
+
+* Denomination input will be in descending order of value.
+
+* Don't hard code the currency value based on Indian Currencies. The input may take any value for the currencies and so try to approach a generic logic instead of hard coded currency value. For example, don't assume that Indian currencies like 2000, 500, 100 etc are only allowed. A currency of value 1500 may also be allowed in the input. 
+
+
+
+Hints:
+
+
+
+* Try to work on basic output as in Sample 1 (where tax is 0 and balance is 0). This will help you to pass few test cases
+
+* Add logic for tax calculation. This will help you to pass few more test cases
+
+* Add logic for denomination calculation. This will help you to pass remaining test cases
+
+
+Sample Input
+
+2
+100|30.00|12.00
+101|20.00|0.00
+1
+101|5
+9
+2000|10
+500|10
+100|10
+50|10
+20|10
+10|10
+5|10
+2|10
+1|10
+100.00
+Sample Output
+
+==START_BILL==
+101|20.00|5|100.00|0.00|0.00|100.00
+100.00
+0.00
+100.00
+100.00
+0.00
+==END_BILL==
+Code
