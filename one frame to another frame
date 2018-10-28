@@ -13,7 +13,7 @@ public class first {
 
 	private JFrame frame;
 	private JTextField textField;
-	public String ans="";
+	public String ans=""; // (or) public static String ans="";
 
 	/**
 	 * Launch the application.
@@ -118,7 +118,7 @@ public class second extends first{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		textField = new JTextField();
+		textField = new JTextField(ans); // automattically stored the first frame ans var.
 		
 		textField.setBounds(140, 86, 86, 20);
 		frame.getContentPane().add(textField);
